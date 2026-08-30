@@ -284,9 +284,10 @@ textarea {
 }
 
 .threads-list {
-  flex-grow: 1;
+  flex: 1 1 auto;
+  min-height: 0;
   overflow-y: auto;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -368,12 +369,12 @@ textarea {
 /* Sidebar User Profile Footer */
 .sidebar-user-footer {
   border-top: 1px solid var(--border-color);
-  padding-top: 16px;
+  padding-top: 12px;
   margin-top: auto;
-  /* Push it to the bottom of the sidebar */
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 10px;
 }
 
 .user-profile {
