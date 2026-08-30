@@ -381,29 +381,7 @@ export default function SearchInputBar({
 
   const liveStatus = getLiveStreamStatus();
 
-  const getDynamicPlaceholder = () => {
-    const activeMode = selectedModeId || currentFocus || 'web';
-    switch (activeMode) {
-      case 'fast':
-        return "Ask any question for instant fast web answer...";
-      case 'pro':
-        return "Enter detailed research topic for multi-query Pro analysis...";
-      case 'deep-reasoning':
-      case 'deep':
-        return "Enter complex problem, formula, or logic for step-by-step deep reasoning...";
-      case 'image-studio':
-        return "Describe the AI visual artwork or 4K concept image you want to generate...";
-      case 'video-studio':
-        return "Describe the HD video scene, animation, or video loop you want to generate...";
-      case 'music-studio':
-        return "Describe the music beat, song lyrics, or audio style you want to compose...";
-      case 'web':
-      default:
-        return placeholder && placeholder !== "Ask anything, paste YouTube URL, upload documents, or use voice..."
-          ? placeholder
-          : "Ask anything, search the web, paste YouTube URL, or upload documents...";
-    }
-  };
+
 
   return (
     <form onSubmit={handleSubmit} className="search-box-wrapper">
@@ -468,7 +446,7 @@ export default function SearchInputBar({
             handleDetectYouTube(val);
           }
         }}
-        placeholder={getDynamicPlaceholder()}
+        placeholder={placeholder}
         className="search-textarea"
         onKeyDown={handleKeyDown}
         rows={1}

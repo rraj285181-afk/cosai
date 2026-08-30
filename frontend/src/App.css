@@ -4262,6 +4262,7 @@ textarea {
 
 /* --- Media Query: Tablet & Mobile (< 768px) --- */
 @media (max-width: 768px) {
+
   /* Show Mobile Header Nav Bar (Locked fixed to viewport top glass) */
   .mobile-top-header {
     display: flex !important;
@@ -4341,228 +4342,229 @@ textarea {
   }
 }
 
-  /* Main Content Layout Adjustments */
-  .main-content {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    position: relative;
-  }
-
-  .top-bar {
-    display: none; /* Mobile header replaces desktop top-bar */
-  }
-
-  /* Home / Search Area - Anchored at exact bottom position on mobile */
-  .search-container {
-    flex-grow: 1;
-    min-height: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 68px 14px 140px 14px !important;
-    width: 100%;
-    box-sizing: border-box;
-    overflow-y: auto;
-  }
-
-  .home-bottom-chat-bar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(180deg, rgba(10, 11, 13, 0) 0%, rgba(10, 11, 13, 0.96) 35%, var(--bg-primary) 100%);
-    padding: 8px 12px 20px 12px;
-    padding-bottom: max(20px, env(safe-area-inset-bottom));
-    display: flex;
-    justify-content: center;
-    z-index: 50;
-    pointer-events: none;
-  }
-
-  .home-bottom-chat-bar .bottom-chat-bar-inner {
-    pointer-events: auto;
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .search-title-box {
-    margin-top: auto;
-    margin-bottom: 24px;
-    width: 100%;
-  }
-
-  .search-title {
-    font-size: 26px;
-    margin-bottom: 20px;
-    line-height: 1.25;
-  }
-
-  .search-box-wrapper {
-    padding: 12px;
-    border-radius: 14px;
-  }
-
-  .search-textarea {
-    font-size: 15px;
-    min-height: 44px;
-    margin-bottom: 8px;
-  }
-
-  .search-controls {
-    flex-wrap: nowrap;
-    gap: 4px;
-    padding-top: 8px;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .search-options {
-    flex-wrap: nowrap;
-    gap: 4px;
-    width: auto;
-    justify-content: flex-start;
-    align-items: center;
-    flex-shrink: 1;
-    min-width: 0;
-  }
-
-  .search-controls-right {
-    flex-wrap: nowrap;
-    gap: 4px;
-    align-items: center;
-    flex-shrink: 0;
-  }
-
-  .control-btn {
-    padding: 5px 8px;
-    font-size: 11.5px;
-    height: 32px;
-    white-space: nowrap;
-  }
-
-  /* Suggestions Grid */
-  .suggestions-grid {
-    grid-template-columns: 1fr;
-    gap: 10px;
-    margin-bottom: 24px;
-  }
-
-  .suggestion-card {
-    padding: 12px 14px;
-  }
-
-  /* Thread View & Messages */
-  .thread-view-container {
-    padding: 68px 12px 160px 12px !important;
-  }
-
-  .user-message-container .message-header {
-    font-size: 18px;
-    line-height: 1.35;
-  }
-
-  .answer-section {
-    font-size: 14.5px;
-    line-height: 1.65;
-  }
-
-  .answer-section h3 {
-    font-size: 16px;
-    margin: 18px 0 10px 0;
-  }
-
-  /* Prevent Code & Tables from Breaking Layout */
-  .answer-section pre,
-  .answer-section table,
-  .code-runner-container,
-  .mermaid-wrapper {
-    max-width: 100% !important;
-    overflow-x: auto !important;
-    -webkit-overflow-scrolling: touch;
-    border-radius: 8px;
-  }
-
-  /* Sources Grid on Mobile */
-  .sources-grid,
-  .perplexity-sources-grid {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 8px;
-    gap: 10px;
-  }
-
-  .source-card {
-    flex: 0 0 150px;
-    min-height: 76px;
-    padding: 10px;
-  }
-
-  .source-title {
-    font-size: 11.5px;
-  }
-
-  /* Sticky Bottom Chat Bar */
-  .bottom-chat-bar {
-    left: 0 !important;
-    right: 0 !important;
-    padding: 8px 12px 18px 12px;
-    background: linear-gradient(180deg, rgba(10, 11, 13, 0) 0%, rgba(10, 11, 13, 0.96) 35%, var(--bg-primary) 100%);
-  }
-
-  .bottom-chat-bar-inner {
-    padding: 0;
-    max-width: 100%;
-  }
-
-  /* Dropdown Menus on Mobile */
-  .focus-dropdown-menu,
-  .unified-search-menu {
-    position: fixed;
-    bottom: 80px;
-    left: 12px;
-    right: 12px;
-    width: auto !important;
-    max-width: calc(100vw - 24px);
-    z-index: 1100;
-  }
-
-  /* Split-Screen Artifact Canvas Overlay on Mobile */
-  .artifact-canvas-container {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    z-index: 1200 !important;
-    border-left: none !important;
-  }
-
-  /* Modals responsiveness */
-  .modal-content,
-  .connected-modal-card {
-    width: 94vw !important;
-    max-width: 480px !important;
-    max-height: 88vh !important;
-    padding: 18px 14px !important;
-    overflow-y: auto !important;
-  }
-
-  /* Citation Tooltip positioning */
-  .citation-tooltip {
-    width: 280px;
-    left: 12px !important;
-    right: 12px !important;
-    max-width: calc(100vw - 24px);
-  }
+/* Main Content Layout Adjustments */
+.main-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
 }
+
+.top-bar {
+  display: none;
+  /* Mobile header replaces desktop top-bar */
+}
+
+/* Home / Search Area - Anchored at exact bottom position on mobile */
+.search-container {
+  flex-grow: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 68px 14px 140px 14px !important;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.home-bottom-chat-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, rgba(10, 11, 13, 0) 0%, rgba(10, 11, 13, 0.96) 35%, var(--bg-primary) 100%);
+  padding: 8px 12px 20px 12px;
+  padding-bottom: max(20px, env(safe-area-inset-bottom));
+  display: flex;
+  justify-content: center;
+  z-index: 50;
+  pointer-events: none;
+}
+
+.home-bottom-chat-bar .bottom-chat-bar-inner {
+  pointer-events: auto;
+  width: 100%;
+  max-width: 100%;
+}
+
+.search-title-box {
+  margin-top: auto;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.search-title {
+  font-size: 26px;
+  margin-bottom: 20px;
+  line-height: 1.25;
+}
+
+.search-box-wrapper {
+  padding: 12px;
+  border-radius: 14px;
+}
+
+.search-textarea {
+  font-size: 15px;
+  min-height: 44px;
+  margin-bottom: 8px;
+}
+
+.search-controls {
+  flex-wrap: nowrap;
+  gap: 4px;
+  padding-top: 8px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-options {
+  flex-wrap: nowrap;
+  gap: 4px;
+  width: auto;
+  justify-content: flex-start;
+  align-items: center;
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+.search-controls-right {
+  flex-wrap: nowrap;
+  gap: 4px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.control-btn {
+  padding: 5px 8px;
+  font-size: 11.5px;
+  height: 32px;
+  white-space: nowrap;
+}
+
+/* Suggestions Grid */
+.suggestions-grid {
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.suggestion-card {
+  padding: 12px 14px;
+}
+
+/* Thread View & Messages */
+.thread-view-container {
+  padding: 68px 12px 160px 12px !important;
+}
+
+.user-message-container .message-header {
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+.answer-section {
+  font-size: 14.5px;
+  line-height: 1.65;
+}
+
+.answer-section h3 {
+  font-size: 16px;
+  margin: 18px 0 10px 0;
+}
+
+/* Prevent Code & Tables from Breaking Layout */
+.answer-section pre,
+.answer-section table,
+.code-runner-container,
+.mermaid-wrapper {
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 8px;
+}
+
+/* Sources Grid on Mobile */
+.sources-grid,
+.perplexity-sources-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 8px;
+  gap: 10px;
+}
+
+.source-card {
+  flex: 0 0 150px;
+  min-height: 76px;
+  padding: 10px;
+}
+
+.source-title {
+  font-size: 11.5px;
+}
+
+/* Sticky Bottom Chat Bar */
+.bottom-chat-bar {
+  left: 0 !important;
+  right: 0 !important;
+  padding: 8px 12px 18px 12px;
+  background: linear-gradient(180deg, rgba(10, 11, 13, 0) 0%, rgba(10, 11, 13, 0.96) 35%, var(--bg-primary) 100%);
+}
+
+.bottom-chat-bar-inner {
+  padding: 0;
+  max-width: 100%;
+}
+
+/* Dropdown Menus on Mobile */
+.focus-dropdown-menu,
+.unified-search-menu {
+  position: fixed;
+  bottom: 80px;
+  left: 12px;
+  right: 12px;
+  width: auto !important;
+  max-width: calc(100vw - 24px);
+  z-index: 1100;
+}
+
+/* Split-Screen Artifact Canvas Overlay on Mobile */
+.artifact-canvas-container {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 1200 !important;
+  border-left: none !important;
+}
+
+/* Modals responsiveness */
+.modal-content,
+.connected-modal-card {
+  width: 94vw !important;
+  max-width: 480px !important;
+  max-height: 88vh !important;
+  padding: 18px 14px !important;
+  overflow-y: auto !important;
+}
+
+/* Citation Tooltip positioning */
+.citation-tooltip {
+  width: 280px;
+  left: 12px !important;
+  right: 12px !important;
+  max-width: calc(100vw - 24px);
+}
+
 
 /* --- Media Query: Small Phones (< 480px) --- */
 @media (max-width: 480px) {
