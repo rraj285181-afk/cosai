@@ -494,12 +494,15 @@ textarea {
 
 .search-box-wrapper {
   width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: 16px;
-  padding: 16px;
+  padding: 14px 16px;
   box-shadow: var(--shadow-premium);
   transition: var(--transition-smooth);
+  box-sizing: border-box;
 }
 
 /* Uploaded & Screen Capture Attachment Pills */
@@ -4388,7 +4391,8 @@ textarea {
 .home-bottom-chat-bar .bottom-chat-bar-inner {
   pointer-events: auto;
   width: 100%;
-  max-width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .search-title-box {

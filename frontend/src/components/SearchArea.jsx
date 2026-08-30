@@ -18,7 +18,7 @@ export default function SearchArea({
 }) {
   return (
     <div className="search-container">
-      <div className="search-title-box" style={{ width: '100%', marginBottom: '24px', textAlign: 'left' }}>
+      <div className="search-title-box" style={{ width: '100%', maxWidth: '800px', margin: '0 auto 24px auto', textAlign: 'left' }}>
         <div style={{ fontSize: '13px', color: '#9ca3af', fontWeight: '500', marginBottom: '6px' }}>
           Search
         </div>
@@ -42,7 +42,6 @@ export default function SearchArea({
             setSelectedPersona={setSelectedPersona}
             voiceAssistantActive={voiceAssistantActive}
             setVoiceAssistantActive={setVoiceAssistantActive}
-            placeholder="Ask anything, paste YouTube URL, upload documents, or use voice..."
           />
         </div>
       </div>
