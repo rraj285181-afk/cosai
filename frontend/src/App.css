@@ -4201,7 +4201,7 @@ textarea {
   height: 54px;
   padding: 0 14px;
   background-color: var(--bg-secondary);
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: none;
   position: relative;
   top: 0;
   z-index: 100;
@@ -4273,7 +4273,7 @@ textarea {
     height: 54px !important;
     z-index: 9999 !important;
     background-color: var(--bg-secondary) !important;
-    border-bottom: 1px solid var(--border-color) !important;
+    border-bottom: none !important;
   }
 
   /* Hide Desktop Floating Toggle Button on Mobile */
