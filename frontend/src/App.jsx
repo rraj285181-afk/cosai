@@ -769,16 +769,18 @@ export default function App() {
       <main className="main-content">
         {/* Mobile Top Header Navigation Bar */}
         <header className="mobile-top-header">
-          <button
-            className="mobile-menu-btn"
-            onClick={() => setSidebarCollapsed(false)}
-            title="Open Menu"
-          >
-            <Menu size={20} />
-          </button>
-          <div className="mobile-brand-logo" onClick={handleNewThread}>
-            <Compass size={18} className="perplexity-compass-icon" />
-            <span className="brand-text">Strange <span>AI</span></span>
+          <div className="mobile-header-left">
+            <button
+              className="mobile-menu-btn"
+              onClick={() => setSidebarCollapsed(false)}
+              title="Open Menu"
+            >
+              <Menu size={20} />
+            </button>
+            <div className="mobile-brand-logo" onClick={handleNewThread}>
+              <Compass size={18} className="perplexity-compass-icon" />
+              <span className="brand-text">Strange <span>AI</span></span>
+            </div>
           </div>
           <button
             className="mobile-new-btn"

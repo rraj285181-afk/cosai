@@ -4209,6 +4209,12 @@ textarea {
   width: 100%;
 }
 
+.mobile-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .mobile-menu-btn,
 .mobile-new-btn {
   background: transparent;
