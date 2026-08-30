@@ -18,16 +18,12 @@ export default function SearchArea({
 }) {
   return (
     <div className="search-container">
-      <div className="search-title-box" style={{ width: '100%', maxWidth: '800px', margin: '0 auto 24px auto', textAlign: 'left' }}>
-        <div style={{ fontSize: '13px', color: 'var(--text-muted)', fontWeight: '500', marginBottom: '6px' }}>
-          Search
+      <div className="search-center-wrapper">
+        <div className="search-title-box">
+          <div className="search-subtitle">Search</div>
+          <h1 className="search-title">What do you want to know?</h1>
         </div>
-        <h1 style={{ fontSize: '32px', fontWeight: '600', color: 'var(--text-primary)', margin: 0, letterSpacing: '-0.5px' }}>
-          What do you want to know?
-        </h1>
-      </div>
-      <div className="home-bottom-chat-bar">
-        <div className="bottom-chat-bar-inner">
+        <div className="home-search-bar-inner">
           <SearchInputBar
             currentFocus={currentFocus}
             onSearchSubmit={onSearchSubmit}
