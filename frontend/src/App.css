@@ -192,6 +192,19 @@ textarea {
   position: relative;
 }
 
+@media (min-width: 769px) {
+  .app-container.sidebar-is-collapsed {
+    --sidebar-width: 68px;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-container,
+  .app-container.sidebar-is-collapsed {
+    --sidebar-width: 0px;
+  }
+}
+
 /* Sidebar Styling */
 .sidebar {
   width: var(--sidebar-width);
@@ -1363,10 +1376,6 @@ textarea {
   transition: var(--transition-smooth);
 }
 
-.app-container.sidebar-is-collapsed .bottom-chat-bar {
-  left: 68px;
-}
-
 .bottom-chat-bar-inner {
   max-width: 800px;
   width: 100%;
@@ -1651,10 +1660,6 @@ textarea {
 
   .app-container.sidebar-is-collapsed .sidebar-guest-signin-btn svg {
     margin-right: 0 !important;
-  }
-
-  .app-container.sidebar-is-collapsed .bottom-chat-bar {
-    left: 68px !important;
   }
 
   .floating-sidebar-toggle {
