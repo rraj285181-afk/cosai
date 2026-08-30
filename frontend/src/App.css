@@ -4533,12 +4533,15 @@ textarea {
   font-size: 11.5px;
 }
 
-/* Sticky Bottom Chat Bar */
-.bottom-chat-bar {
+/* Sticky Bottom Chat Bar - Completely transparent without any dark strip/container */
+.bottom-chat-bar,
+.home-bottom-chat-bar {
   left: 0 !important;
   right: 0 !important;
   padding: 8px 12px 18px 12px;
-  background: linear-gradient(180deg, rgba(10, 11, 13, 0) 0%, rgba(10, 11, 13, 0.96) 35%, var(--bg-primary) 100%);
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
 }
 
 .bottom-chat-bar-inner {
