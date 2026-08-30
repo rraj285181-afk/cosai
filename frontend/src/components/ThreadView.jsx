@@ -617,6 +617,7 @@ export default function ThreadView({
 
   return (
     <div className="thread-view-container" ref={containerRef}>
+      <div className="thread-messages-wrapper">
       {thread.messages.map((msg, index) => {
         const isUser = msg.role === 'user';
         const markdownComponents = getMarkdownComponents(msg.sources || []);
@@ -989,6 +990,8 @@ export default function ThreadView({
           </a>
         </div>
       )}
+
+      </div>{/* end thread-messages-wrapper */}
 
       <div ref={bottomRef} />
 

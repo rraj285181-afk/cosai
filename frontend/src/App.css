@@ -199,7 +199,6 @@ textarea {
 }
 
 @media (max-width: 768px) {
-
   .app-container,
   .app-container.sidebar-is-collapsed {
     --sidebar-width: 0px;
@@ -806,18 +805,71 @@ textarea {
   color: var(--text-muted);
 }
 
+/* ============================================================
+   Home Search Page Layout
+   ============================================================ */
+.search-container {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+.search-center-wrapper {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.search-title-box {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.search-subtitle {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.search-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.home-search-bar-inner {
+  width: 100%;
+}
+
 /* Thread View Layout */
 .thread-view-container {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  padding: 32px 16px 5px 16px;
+  padding: 32px 16px 0 16px;
   max-width: 800px;
   margin: 0 auto;
   width: 100%;
   box-sizing: border-box;
   scroll-behavior: smooth;
+}
+
+/* Messages area grows to fill space, pushing input to bottom */
+.thread-messages-wrapper {
+  flex: 1;
 }
 
 .chat-message {
@@ -1366,18 +1418,18 @@ textarea {
 .bottom-chat-bar {
   position: sticky;
   bottom: 0;
-  margin-top: auto;
   width: 100%;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
   background: transparent;
-  padding: 8px 0 8px 0;
+  padding: 16px 0 20px 0;
   display: flex;
   justify-content: center;
   z-index: 50;
   pointer-events: auto;
   box-sizing: border-box;
+  margin-top: 24px;
 }
 
 .bottom-chat-bar-inner {
@@ -4507,7 +4559,7 @@ textarea {
 
 /* Thread View & Messages */
 .thread-view-container {
-  padding: 68px 12px 160px 12px !important;
+  padding: 68px 12px 0 12px !important;
 }
 
 .user-message-container .message-header {
