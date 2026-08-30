@@ -61,6 +61,14 @@ export default function App() {
   const [speechPitch, setSpeechPitch] = useState(1.0);
   const [selectedVoiceIndex, setSelectedVoiceIndex] = useState(0);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(() => window.innerWidth <= 768);
+  const [theme, setTheme] = useState(() => localStorage.getItem('strange_ai_theme') || 'oled');
+
+  useEffect(() => {
+    const themeClass = theme === 'light' ? 'theme-light' : 'theme-oled';
+    document.documentElement.className = themeClass;
+    document.body.className = themeClass;
+    localStorage.setItem('strange_ai_theme', theme);
+  }, [theme]);
 
   // PWA Install Prompt State & Handler
   const [deferredPrompt, setDeferredPrompt] = useState(null);
@@ -732,7 +740,7 @@ export default function App() {
   }
 
   return (
-    <div className={`app-container ${sidebarCollapsed ? 'sidebar-is-collapsed' : ''}`}>
+    <div className={`app-container ${theme === 'light' ? 'theme-light' : 'theme-oled'} ${sidebarCollapsed ? 'sidebar-is-collapsed' : ''}`}>
       {/* Backdrop overlay for closing sidebar on mobile when clicked outside */}
       {!sidebarCollapsed && (
         <div

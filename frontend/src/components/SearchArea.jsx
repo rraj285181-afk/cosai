@@ -19,10 +19,10 @@ export default function SearchArea({
   return (
     <div className="search-container">
       <div className="search-title-box" style={{ width: '100%', maxWidth: '800px', margin: '0 auto 24px auto', textAlign: 'left' }}>
-        <div style={{ fontSize: '13px', color: '#9ca3af', fontWeight: '500', marginBottom: '6px' }}>
+        <div style={{ fontSize: '13px', color: 'var(--text-muted)', fontWeight: '500', marginBottom: '6px' }}>
           Search
         </div>
-        <h1 style={{ fontSize: '32px', fontWeight: '600', color: '#f3f4f6', margin: 0, letterSpacing: '-0.5px' }}>
+        <h1 style={{ fontSize: '32px', fontWeight: '600', color: 'var(--text-primary)', margin: 0, letterSpacing: '-0.5px' }}>
           What do you want to know?
         </h1>
       </div>
