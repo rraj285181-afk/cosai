@@ -155,16 +155,7 @@ export default function App() {
     }
   };
 
-  // Theme: 'light' | 'oled'
-  const [theme, setTheme] = useState(() => localStorage.getItem('strange_ai_theme') || 'light');
 
-  // Apply theme class to <html> element
-  React.useEffect(() => {
-    const html = document.documentElement;
-    html.classList.remove('theme-dark', 'theme-oled', 'theme-light');
-    if (theme !== 'light') html.classList.add(`theme-${theme}`);
-    localStorage.setItem('strange_ai_theme', theme);
-  }, [theme]);
 
   const handleGoogleCallback = (response) => {
     const payload = decodeJwt(response.credential);
