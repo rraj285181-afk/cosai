@@ -4316,9 +4316,10 @@ textarea {
     transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.28s !important;
   }
 
-  /* Hide redundant duplicate logo inside sidebar header on mobile (since top bar has logo) */
+  /* Show logo inside sidebar drawer header on mobile */
   .sidebar .sidebar-logo {
-    display: none !important;
+    display: flex !important;
+    margin-bottom: 20px !important;
   }
 
   .app-container.sidebar-is-collapsed .sidebar {
