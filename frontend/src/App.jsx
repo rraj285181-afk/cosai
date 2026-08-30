@@ -770,6 +770,10 @@ export default function App() {
         {/* Mobile Top Header Navigation Bar */}
         <header className="mobile-top-header">
           <div className="mobile-header-left">
+            <div className="mobile-brand-logo" onClick={handleNewThread}>
+              <Compass size={18} className="perplexity-compass-icon" />
+              <span className="brand-text">Strange <span>AI</span></span>
+            </div>
             <button
               className="mobile-menu-btn"
               onClick={() => setSidebarCollapsed(false)}
@@ -777,10 +781,6 @@ export default function App() {
             >
               <Menu size={20} />
             </button>
-            <div className="mobile-brand-logo" onClick={handleNewThread}>
-              <Compass size={18} className="perplexity-compass-icon" />
-              <span className="brand-text">Strange <span>AI</span></span>
-            </div>
           </div>
           <button
             className="mobile-new-btn"
