@@ -798,7 +798,7 @@ textarea {
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  padding: 32px 0 160px 0;
+  padding: 32px 16px 140px 16px;
   max-width: 800px;
   margin: 0 auto;
   width: 100%;
@@ -1348,28 +1348,29 @@ textarea {
   color: var(--text-primary);
 }
 
-/* Sticky Bottom Chat Bar - Perfectly in flow with Thread Content */
+/* Fixed bottom Chat Bar - Anchored at the bottom of the screen */
 .bottom-chat-bar {
-  position: sticky;
-  bottom: 0;
-  margin-top: auto;
-  width: 100%;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+  position: fixed;
+  bottom: 20px;
+  left: var(--sidebar-width);
+  right: 0;
   background: transparent;
-  padding: 12px 0 24px 0;
+  padding: 0;
   display: flex;
   justify-content: center;
   z-index: 50;
   pointer-events: none;
-  box-sizing: border-box;
+  transition: var(--transition-smooth);
+}
+
+.app-container.sidebar-is-collapsed .bottom-chat-bar {
+  left: 68px;
 }
 
 .bottom-chat-bar-inner {
   max-width: 800px;
   width: 100%;
-  padding: 0;
+  padding: 0 16px;
   margin: 0 auto;
   pointer-events: auto;
   box-sizing: border-box;
@@ -4548,14 +4549,21 @@ textarea {
 }
 
 /* Sticky Bottom Chat Bar - Completely transparent without any dark strip/container */
-.bottom-chat-bar {
-  position: sticky !important;
-  bottom: 0 !important;
+.bottom-chat-bar,
+.app-container.sidebar-is-collapsed .bottom-chat-bar {
+  position: fixed !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 12px !important;
   width: 100% !important;
-  padding: 8px 0 16px 0 !important;
+  padding: 0 !important;
   background: transparent !important;
   box-shadow: none !important;
   border: none !important;
+}
+
+.bottom-chat-bar-inner {
+  padding: 0 12px !important;
 }
 
 .bottom-chat-bar-inner {
