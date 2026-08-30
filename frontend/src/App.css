@@ -4200,7 +4200,7 @@ textarea {
   justify-content: space-between;
   height: 54px;
   padding: 0 14px;
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-primary);
   border-bottom: none;
   position: relative;
   top: 0;
@@ -4272,7 +4272,7 @@ textarea {
     width: 100% !important;
     height: 54px !important;
     z-index: 9999 !important;
-    background-color: var(--bg-secondary) !important;
+    background-color: var(--bg-primary) !important;
     border-bottom: none !important;
   }
 
