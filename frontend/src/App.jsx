@@ -60,7 +60,7 @@ export default function App() {
   const [speechRate, setSpeechRate] = useState(1.05);
   const [speechPitch, setSpeechPitch] = useState(1.0);
   const [selectedVoiceIndex, setSelectedVoiceIndex] = useState(0);
-  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(() => window.innerWidth <= 768);
 
   // PWA Install Prompt State & Handler
   const [deferredPrompt, setDeferredPrompt] = useState(null);
