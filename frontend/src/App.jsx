@@ -64,9 +64,35 @@ export default function App() {
   const [theme, setTheme] = useState(() => localStorage.getItem('strange_ai_theme') || 'oled');
 
   useEffect(() => {
-    const themeClass = theme === 'light' ? 'theme-light' : 'theme-oled';
-    document.documentElement.className = themeClass;
-    document.body.className = themeClass;
+    const isLight = theme === 'light';
+    const root = document.documentElement;
+    if (isLight) {
+      root.classList.add('theme-light');
+      root.classList.remove('theme-oled');
+      document.body.classList.add('theme-light');
+      document.body.classList.remove('theme-oled');
+      root.style.setProperty('--bg-primary', '#f8fafc');
+      root.style.setProperty('--bg-secondary', '#ffffff');
+      root.style.setProperty('--bg-card', '#ffffff');
+      root.style.setProperty('--bg-card-hover', '#f1f5f9');
+      root.style.setProperty('--border-color', 'rgba(0, 0, 0, 0.12)');
+      root.style.setProperty('--text-primary', '#0f172a');
+      root.style.setProperty('--text-secondary', '#334155');
+      root.style.setProperty('--text-muted', '#64748b');
+    } else {
+      root.classList.add('theme-oled');
+      root.classList.remove('theme-light');
+      document.body.classList.add('theme-oled');
+      document.body.classList.remove('theme-light');
+      root.style.setProperty('--bg-primary', '#000000');
+      root.style.setProperty('--bg-secondary', '#080808');
+      root.style.setProperty('--bg-card', '#0f0f0f');
+      root.style.setProperty('--bg-card-hover', '#161616');
+      root.style.setProperty('--border-color', 'rgba(255, 255, 255, 0.08)');
+      root.style.setProperty('--text-primary', '#ffffff');
+      root.style.setProperty('--text-secondary', '#a1a1aa');
+      root.style.setProperty('--text-muted', '#71717a');
+    }
     localStorage.setItem('strange_ai_theme', theme);
   }, [theme]);
 
