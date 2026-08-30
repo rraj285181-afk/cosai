@@ -42,7 +42,6 @@ export default function SearchArea({
             setSelectedPersona={setSelectedPersona}
             voiceAssistantActive={voiceAssistantActive}
             setVoiceAssistantActive={setVoiceAssistantActive}
-            placeholder="Ask anything, paste YouTube URL, upload documents, or use voice..."
           />
         </div>
       </div>
