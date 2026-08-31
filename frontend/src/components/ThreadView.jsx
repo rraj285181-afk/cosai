@@ -76,6 +76,7 @@ export default function ThreadView({
 
   thread,
   onFollowUpSubmit,
+  onNewSearch,
   isGenerating,
   currentStreamText,
   searchProgress,
@@ -143,7 +144,7 @@ export default function ThreadView({
 
     setImagesLoading(prev => ({ ...prev, [msgIndex]: true }));
     try {
-      const imgs = await searchImages(userQuery || thread.title || 'technology research');
+      const imgs = await searchImages(userQuery || thread?.title || 'technology research');
       setMessageImages(prev => ({ ...prev, [msgIndex]: imgs }));
     } catch (err) {
       console.error('Error fetching images:', err);
@@ -169,7 +170,7 @@ export default function ThreadView({
         sourcesText = '\n\nSources:\n' + msg.sources.map((src, i) => `[${i + 1}] ${src.title} - ${src.url}`).join('\n');
       }
 
-      const queryTitle = thread.messages[0]?.content || 'Research Report';
+      const queryTitle = thread?.messages?.[0]?.content || 'Research Report';
       const formattedText = `=== STRANGE AI RESEARCH REPORT ===\n\nQuery: ${queryTitle}\n\nAnswer:\n${msg.content}${sourcesText}\n\n=================================`;
 
       if (navigator.share) {
@@ -247,13 +248,12 @@ export default function ThreadView({
 
   // Auto-scroll inside chat container when new messages or chunks arrive
   useEffect(() => {
-    if (containerRef.current) {
-      containerRef.current.scrollTo({
-        top: containerRef.current.scrollHeight,
-        behavior: 'smooth'
-      });
-    }
-  }, [thread.messages, currentStreamText, searchProgress]);
+    if (!thread || !containerRef.current) return;
+    containerRef.current.scrollTo({
+      top: containerRef.current.scrollHeight,
+      behavior: 'smooth'
+    });
+  }, [thread?.messages, currentStreamText, searchProgress]);
 
   // Auto-resize follow-up textarea and reset on clear or submit
   useEffect(() => {
@@ -274,7 +274,7 @@ export default function ThreadView({
       clearInterval(speechIntervalRef.current);
       speechIntervalRef.current = null;
     }
-  }, [thread.id]);
+  }, [thread?.id]);
 
   // Clean up interval, speech, and speech recognition on component unmount
   useEffect(() => {
@@ -503,7 +503,7 @@ export default function ThreadView({
   // Triggers whenever isGenerating finishes while voice mode is active
   useEffect(() => {
     if (!voiceAssistantActive || isGenerating) return;
-    if (thread.messages.length === 0) return;
+    if (!thread || thread.messages.length === 0) return;
 
     const lastMsg = thread.messages[thread.messages.length - 1];
     if (lastMsg.role !== 'assistant') return;
@@ -617,8 +617,21 @@ export default function ThreadView({
 
   return (
     <div className="thread-view-container" ref={containerRef}>
-      <div className="thread-messages-wrapper">
-      {thread.messages.map((msg, index) => {
+
+      {/* ══ HOME EMPTY STATE ══ Jab koi thread select nahi hai ══ */}
+      {!thread && (
+        <div className="thread-home-state">
+          <div className="thread-home-content">
+            <div className="search-subtitle">Search</div>
+            <h1 className="thread-home-title">What do you want to know?</h1>
+          </div>
+        </div>
+      )}
+
+      {/* ══ THREAD MESSAGES ══ Jab thread active hai ══ */}
+      {thread && (
+        <div className="thread-messages-wrapper">
+          {thread.messages.map((msg, index) => {
         const isUser = msg.role === 'user';
         const markdownComponents = getMarkdownComponents(msg.sources || []);
 
@@ -915,8 +928,11 @@ export default function ThreadView({
               </div>
             )}
           </div>
-        );
-      })}
+          );
+          })}
+        </div>
+      )}
+
 
       {/* Streaming Active Assistant Response */}
       {isGenerating && (currentStreamText || (searchProgress && searchProgress.length > 0)) && (
@@ -989,20 +1005,24 @@ export default function ThreadView({
             <ArrowRight size={10} />
           </a>
         </div>
-      )}
-
-      </div>{/* end thread-messages-wrapper */}
+      )}{/* end tooltip */}
 
       <div ref={bottomRef} />
 
-      {/* Sticky follow up Chat Bar at bottom */}
+      {/* Unified Input Bar — home state ya follow-up dono ke liye */}
       <div className="bottom-chat-bar">
         <div className="bottom-chat-bar-inner">
           <SearchInputBar
-            currentFocus={thread.focus || 'web'}
+            currentFocus={thread?.focus || 'web'}
             externalQuery={followUpText}
             onSearchSubmit={(q, foc, pro, files, persona) => {
-              onFollowUpSubmit(q, foc, pro, files, persona);
+              if (!thread) {
+                // Home state: naya thread banao
+                if (onNewSearch) onNewSearch(q, foc, pro, files, persona);
+              } else {
+                // Thread state: follow-up
+                onFollowUpSubmit(q, foc, pro, files, persona);
+              }
               setFollowUpText('');
             }}
             isLoading={isGenerating}
@@ -1016,7 +1036,7 @@ export default function ThreadView({
             setSelectedPersona={setSelectedPersona}
             voiceAssistantActive={voiceAssistantActive}
             setVoiceAssistantActive={setVoiceAssistantActive}
-            placeholder="Ask follow-up or paste YouTube URL..."
+            placeholder={!thread ? "Ask anything, paste YouTube URL, upload documents, or use voice..." : "Ask follow-up or paste YouTube URL..."}
           />
         </div>
       </div>

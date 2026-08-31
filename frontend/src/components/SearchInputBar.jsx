@@ -743,7 +743,7 @@ export default function SearchInputBar({
             </button>
 
             {modelDropdownOpen && (
-              <div className="focus-dropdown-menu" style={{ minWidth: '160px' }}>
+              <div className="focus-dropdown-menu" style={{ width: 'max-content', left: '0', right: 0 }}>
                 <button
                   type="button"
                   className={`focus-dropdown-item ${selectedModel === 'gemini' ? 'active' : ''}`}

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Sidebar from './components/Sidebar';
-import SearchArea from './components/SearchArea';
 import ThreadView from './components/ThreadView';
 import ArtifactCanvas from './components/ArtifactCanvas';
 import VoiceOverlay from './components/VoiceOverlay';
@@ -810,47 +809,31 @@ export default function App() {
           </button>
         </header>
 
-        {activeThread ? (
-          <ThreadView
-            thread={activeThread}
-            onFollowUpSubmit={(query, focusInput, proModeInput, filesInput, personaInput) => {
-              handleFollowUpSubmit(query, focusInput, proModeInput, filesInput, personaInput);
-            }}
-            isGenerating={isGenerating}
-            currentStreamText={currentStreamText}
-            searchProgress={searchProgress}
-            attachedFiles={attachedFiles}
-            setAttachedFiles={setAttachedFiles}
-            proMode={proMode}
-            setProMode={setProMode}
-            selectedModel={selectedModel}
-            setSelectedModel={setSelectedModel}
-            selectedPersona={selectedPersona}
-            setSelectedPersona={setSelectedPersona}
-            voiceAssistantActive={voiceAssistantActive}
-            setVoiceAssistantActive={setVoiceAssistantActive}
-            speechRate={speechRate}
-            speechPitch={speechPitch}
-            selectedVoiceIndex={selectedVoiceIndex}
-            onOpenArtifact={(art) => setActiveArtifact(art)}
-          />
-        ) : (
-          <SearchArea
-            currentFocus={currentFocus}
-            onSearchSubmit={handleSearchSubmit}
-            isLoading={isGenerating}
-            attachedFiles={attachedFiles}
-            setAttachedFiles={setAttachedFiles}
-            proMode={proMode}
-            setProMode={setProMode}
-            selectedModel={selectedModel}
-            setSelectedModel={setSelectedModel}
-            selectedPersona={selectedPersona}
-            setSelectedPersona={setSelectedPersona}
-            voiceAssistantActive={voiceAssistantActive}
-            setVoiceAssistantActive={setVoiceAssistantActive}
-          />
-        )}
+        {/* Unified ThreadView — home state + thread state dono handle karta hai */}
+        <ThreadView
+          thread={activeThread || null}
+          onNewSearch={handleSearchSubmit}
+          onFollowUpSubmit={(query, focusInput, proModeInput, filesInput, personaInput) => {
+            handleFollowUpSubmit(query, focusInput, proModeInput, filesInput, personaInput);
+          }}
+          isGenerating={isGenerating}
+          currentStreamText={currentStreamText}
+          searchProgress={searchProgress}
+          attachedFiles={attachedFiles}
+          setAttachedFiles={setAttachedFiles}
+          proMode={proMode}
+          setProMode={setProMode}
+          selectedModel={selectedModel}
+          setSelectedModel={setSelectedModel}
+          selectedPersona={selectedPersona}
+          setSelectedPersona={setSelectedPersona}
+          voiceAssistantActive={voiceAssistantActive}
+          setVoiceAssistantActive={setVoiceAssistantActive}
+          speechRate={speechRate}
+          speechPitch={speechPitch}
+          selectedVoiceIndex={selectedVoiceIndex}
+          onOpenArtifact={(art) => setActiveArtifact(art)}
+        />
 
         {/* Split-Screen Interactive Artifact Canvas Drawer */}
         {activeArtifact && (
