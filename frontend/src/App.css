@@ -4676,8 +4676,13 @@ textarea {
   }
 }
 
-/* Desktop-specific centering for Home State */
+/* Desktop-specific centering & locked width for Thread View */
 @media (min-width: 769px) {
+  .thread-view-container {
+    width: 800px !important;
+    max-width: 800px !important;
+  }
+
   .thread-view-container.is-home {
     justify-content: center !important;
     padding-top: 0 !important;
