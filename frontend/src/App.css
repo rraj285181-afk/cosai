@@ -4675,3 +4675,32 @@ textarea {
     padding: 5px;
   }
 }
+
+/* Desktop-specific centering for Home State */
+@media (min-width: 769px) {
+  .thread-view-container.is-home {
+    justify-content: center !important;
+    padding-top: 0 !important;
+    padding-bottom: 8% !important; /* Visual offset slightly upwards */
+    height: 100vh !important;
+  }
+
+  .thread-view-container.is-home .thread-home-state {
+    flex: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding-bottom: 20px !important;
+  }
+
+  .thread-view-container.is-home .bottom-chat-bar {
+    position: relative !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    width: 100% !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+}

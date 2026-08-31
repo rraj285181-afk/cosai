@@ -616,7 +616,7 @@ export default function ThreadView({
   });
 
   return (
-    <div className="thread-view-container" ref={containerRef}>
+    <div className={`thread-view-container ${!thread ? 'is-home' : ''}`} ref={containerRef}>
 
       {/* ══ HOME EMPTY STATE ══ Jab koi thread select nahi hai ══ */}
       {!thread && (
