@@ -63,8 +63,18 @@ export default function App() {
   const [theme, setTheme] = useState(() => localStorage.getItem('strange_ai_theme') || 'oled');
 
   useEffect(() => {
-    const isLight = theme === 'light';
     const root = document.documentElement;
+    const isLight = theme === 'light';
+    
+    // Set color scheme for native elements (navigation bars, scrollbars, etc.)
+    root.style.colorScheme = isLight ? 'light' : 'dark';
+    
+    // Dynamically update theme-color meta tag
+    const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+    if (metaThemeColor) {
+      metaThemeColor.setAttribute('content', isLight ? '#f8fafc' : '#000000');
+    }
+
     if (isLight) {
       root.classList.add('theme-light');
       root.classList.remove('theme-oled');

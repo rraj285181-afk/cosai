@@ -15,7 +15,7 @@
   ],
   "start_url": "/",
   "background_color": "#0a0b0d",
-  "theme_color": "#10b981",
+  "theme_color": "#000000",
   "display": "standalone",
   "orientation": "any",
   "categories": ["productivity", "utilities", "education"]
